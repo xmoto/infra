@@ -3,6 +3,11 @@ stores:
     indent: 2
 
 creation_rules:
-  - encrypted_regex: '^(data|stringData)$'
+  - path_regex: kubernetes/.*\.sops\.yaml$
+    encrypted_regex: '^(data|stringData)$'
+    age: >-
+      age1de22saduxts5n3vzzqhk2kpfta64aq5cqj0kuycen4j8eqvhpqaqapezq7
+
+  - path_regex: terraform/.*\.sops\.yaml$
     age: >-
       age1de22saduxts5n3vzzqhk2kpfta64aq5cqj0kuycen4j8eqvhpqaqapezq7
