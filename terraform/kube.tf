@@ -16,7 +16,7 @@ module "kubernetes" {
   cert_manager_enabled = true
   cilium_gateway_api_enabled = true
   cilium_gateway_api_proxy_protocol_enabled = true
-  hcloud_ccm_enabled = false
+  hcloud_ccm_enabled = true
 
   control_plane_nodepools = [
     { name = "control", type = "cx23", location = "nbg1", count = 1 }

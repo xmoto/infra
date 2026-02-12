@@ -1,0 +1,5 @@
+resources:
+  - namespaces.yaml
+
+generators:
+  - ./secret-generator.yaml

@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+
+metadata:
+  name: letsencrypt-dns01
+
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: postmaster@xmoto.org
+    privateKeySecretRef:
+      name: letsencrypt-account-key
+
+    solvers:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token
+              key: api-token

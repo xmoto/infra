@@ -1,0 +1,21 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+
+metadata:
+  # NOTE: This is public, as ExternalDNS stores it in a TXT record that it uses to verify that it's the owner of that record
+  name: demo-app-route
+  annotations:
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+
+spec:
+  parentRefs:
+    - name: main # The Cilium gateway
+      namespace: gateway
+
+  hostnames:
+    - demo.xmoto.org
+
+  rules:
+    - backendRefs:
+      - name: whoami
+        port: 80
