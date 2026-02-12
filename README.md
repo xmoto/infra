@@ -26,6 +26,10 @@
 ```bash
 cd terraform
 
+# Decrypt config files
+sops decrypt kubeconfig.sops.yaml >kubeconfig.yaml
+sops decrypt talosconfig.sops.yaml >talosconfig.yaml
+
 # Modify the terraform.tfvars file as needed
 cp -i terraform.tfvars.example terraform.tfvars
 
@@ -38,6 +42,8 @@ terraform plan
 # Apply
 terraform apply
 ```
+
+If Terraform makes changes to the `kubeconfig.yaml` or `talosconfig.yaml` files, remember to re-encrypt them into `kubeconfig.sops.yaml` and `talosconfig.sops.yaml` respectively.
 
 ### Kubernetes
 
