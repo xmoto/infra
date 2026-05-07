@@ -10,13 +10,13 @@ module "kubernetes" {
   cluster_name = "k8s"
   hcloud_token = var.hcloud_token
 
-  cluster_kubeconfig_path = "kubeconfig.yaml"
+  cluster_kubeconfig_path  = "kubeconfig.yaml"
   cluster_talosconfig_path = "talosconfig.yaml"
 
-  cert_manager_enabled = true
-  cilium_gateway_api_enabled = true
+  cert_manager_enabled                      = true
+  cilium_gateway_api_enabled                = true
   cilium_gateway_api_proxy_protocol_enabled = true
-  hcloud_ccm_enabled = true
+  hcloud_ccm_enabled                        = true
 
   control_plane_nodepools = [
     { name = "control", type = "cx23", location = "nbg1", count = 1 }
