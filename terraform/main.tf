@@ -5,7 +5,7 @@ variable "hcloud_token" {
 
 module "kubernetes" {
   source  = "hcloud-k8s/kubernetes/hcloud"
-  version = "3.21.3"
+  version = "4.0.0"
 
   cluster_name = "k8s"
   hcloud_token = var.hcloud_token
