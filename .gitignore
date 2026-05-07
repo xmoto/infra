@@ -1,3 +1,6 @@
+# direnv
+.direnv/
+
 # Local .terraform directories
 .terraform/
 
