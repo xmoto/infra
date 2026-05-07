@@ -19,8 +19,10 @@ module "kubernetes" {
   hcloud_ccm_enabled                        = true
 
   control_plane_nodepools = [
-    { name = "control", type = "cx23", location = "nbg1", count = 1 }
+    { name = "control", type = "cx23", location = "fsn1", count = 1 }
   ]
 
-  worker_nodepools = []
+  worker_nodepools = [
+    { name = "worker", type = "cx23", location = "fsn1", count = 1 }
+  ]
 }
