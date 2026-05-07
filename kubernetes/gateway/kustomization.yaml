@@ -1,6 +1,6 @@
 namespace: gateway
 
 resources:
-  - namespace.yaml
   - gateway.yaml
   - issuer.yaml
+  - ip-pool.yaml
