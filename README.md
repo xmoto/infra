@@ -30,8 +30,7 @@ cd terraform
 sops decrypt kubeconfig.sops.yaml >kubeconfig.yaml
 sops decrypt talosconfig.sops.yaml >talosconfig.yaml
 
-# Modify the terraform.tfvars file as needed
-cp -i terraform.tfvars.example terraform.tfvars
+export TF_VAR_hcloud_token="<your token>"
 
 # Initialize modules and stuff
 terraform init
