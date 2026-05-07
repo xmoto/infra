@@ -11,7 +11,9 @@ spec:
 
   infrastructure:
     annotations:
-      external-dns.alpha.kubernetes.io/target: "178.105.103.187"
+      load-balancer.hetzner.cloud/name: "cilium-gateway-fsn1"
+      load-balancer.hetzner.cloud/location: "fsn1"
+      load-balancer.hetzner.cloud/uses-proxyprotocol: "true"
 
   listeners:
     - name: https

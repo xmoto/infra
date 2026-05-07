@@ -15,9 +15,9 @@ module "kubernetes" {
 
   cert_manager_enabled                      = true
   cilium_gateway_api_enabled                = true
-  cilium_gateway_api_proxy_protocol_enabled = false
+  cilium_gateway_api_proxy_protocol_enabled = true
   hcloud_ccm_enabled                        = true
-  hcloud_ccm_load_balancers_enabled         = false
+  hcloud_ccm_load_balancers_enabled         = true
 
   control_plane_nodepools = [
     { name = "control", type = "cx23", location = "fsn1", count = 1 }
@@ -25,30 +25,5 @@ module "kubernetes" {
 
   worker_nodepools = [
     { name = "worker", type = "cx23", location = "fsn1", count = 1 }
-  ]
-
-  cilium_helm_values = {
-    defaultLBServiceIPAM = "nodeipam"
-    nodeIPAM = {
-      enabled = true
-    }
-  }
-
-  firewall_extra_rules = [
-    {
-      description = "Allow HTTP"
-      direction   = "in"
-      source_ips  = ["0.0.0.0/0", "::/0"]
-      protocol    = "tcp"
-      port        = "80"
-    },
-
-    {
-      description = "Allow HTTPS"
-      direction   = "in"
-      source_ips  = ["0.0.0.0/0", "::/0"]
-      protocol    = "tcp"
-      port        = "443"
-    }
   ]
 }
