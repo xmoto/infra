@@ -65,5 +65,6 @@ kbuild bootstrap | k apply -f -
 helmfile apply -f helm/helmfile.yaml
 
 kbuild gateway | k apply -f -
+kbuild argocd | k apply -f -
 kbuild whoami | k apply -f -
 ```

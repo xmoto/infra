@@ -2,9 +2,19 @@ repositories:
   - name: external-dns
     url: https://kubernetes-sigs.github.io/external-dns
 
+  - name: argo
+    url: https://argoproj.github.io/argo-helm
+
 releases:
   - name: external-dns
     namespace: external-dns
     chart: external-dns/external-dns
     values:
       - values/external-dns.yaml
+
+  - name: argo
+    namespace: argocd
+    chart: argo/argo-cd
+    version: 9.5.11
+    values:
+      - values/argo.yaml

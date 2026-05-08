@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: xmoto-web-site-prod
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/xmoto/argocd-deployments.git
+    targetRevision: HEAD
+    path: xmoto-web-site/overlays/prod
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+
+  syncPolicy: {} # manual

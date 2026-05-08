@@ -1,0 +1,24 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: GRPCRoute
+
+metadata:
+  name: argocd-route-grpc
+  namespace: argocd
+
+spec:
+  parentRefs:
+    - name: main
+      namespace: gateway
+
+  hostnames:
+    - argocd.xmoto.org
+
+  rules:
+    - backendRefs:
+      - name: argo-argocd-server
+        port: 443
+      matches:
+        - headers:
+          - name: Content-Type
+            type: RegularExpression
+            value: "^application/grpc.*$"
