@@ -7,3 +7,4 @@ resources:
   - apps/xmoto-web-api/app-prod.yaml
   - apps/xmoto-web-site/app-staging.yaml
   - apps/xmoto-web-site/app-prod.yaml
+  - apps/xmoto-web-legacy/app-prod.yaml
