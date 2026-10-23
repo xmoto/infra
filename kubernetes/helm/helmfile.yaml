@@ -5,6 +5,9 @@ repositories:
   - name: argo
     url: https://argoproj.github.io/argo-helm
 
+  - name: mariadb-operator
+    url: https://mariadb-operator.github.io/mariadb-operator
+
 releases:
   - name: external-dns
     namespace: external-dns
@@ -19,3 +22,15 @@ releases:
     version: 9.5.11
     values:
       - values/argo.yaml
+
+  - name: mariadb-operator-crds
+    namespace: mariadb-operator
+    chart: mariadb-operator/mariadb-operator-crds
+    version: 26.10.1
+
+  - name: mariadb-operator
+    namespace: mariadb-operator
+    chart: mariadb-operator/mariadb-operator
+    version: 26.10.1
+    needs:
+      - mariadb-operator/mariadb-operator-crds
